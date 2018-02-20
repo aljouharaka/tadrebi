@@ -1,0 +1,23 @@
+{% extends "base2.html" %}
+
+{%block content%}
+<h2>Signup</h2>
+<form  action="/accounts/signup/" method="post">
+  {% csrf_token %}
+  {% for field in form %}
+  <div class="row form-group">
+                            <div class="col-md-12">
+                                  {{ field.errors }}
+                              <label for="date-start">{{ field.label_tag }} </label>
+                              <span class="form-control">{{ field }}</span>
+
+
+          {% if field.help_text %}
+          <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      </div>
+  {% endfor %}
+  <input type="submit" class="btn btn-primary btn-block" name="" value="signup">
+</form>
+{%endblock%}

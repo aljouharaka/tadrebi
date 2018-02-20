@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+
+{%block content%}
+<h1>crate </h1>
+<form class="" action="{%url 'users:create'%}" method="post" enctype="multipart/form-data"><!--to upload any files use enctype-->
+  {%csrf_token%}
+  <input type='text'   name="name">
+  <input type='textArea'  name='info'>
+  <select  name="usertype" >
+    <option  value=1  name=usertype> student</option>
+        <option  value=2  name=usertype> organization</option>
+            <option  value=3  name=usertype> Committee</option>
+          </select>
+  <input type="submit"  value="create">
+</form>
+{%endblock%}
